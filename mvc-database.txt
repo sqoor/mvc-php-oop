@@ -1,0 +1,50 @@
+// create tables and add foregin keys
+
+CREATE TABLE products (
+	id int(11) NOT NULL AUTO_INCREMENT,
+	 name varchar(32),
+	 description varchar(255),
+	 price int(11),
+	 category_id int(11),
+	 created datetime,
+	 modified timestamp DEFAULT CURRENT_TIMESTAMP,
+	 PRIMARY KEY (id)
+)
+
+
+CREATE TABLE categories (
+	id int(11) NOT NULL AUTO_INCREMENT,
+	 name varchar(255),
+	 created datetime,
+	 modified timestamp DEFAULT CURRENT_TIMESTAMP,
+	 PRIMARY KEY (id)
+)
+
+// add forgein key 
+
+category_id
+
+ALTER TABLE users ADD CONSTRAINT fk_grade_id FOREIGN KEY (grade_id) REFERENCES grades(id);
+
+
+
+ALTER TABLE products ADD CONSTRAINT fk_product_category FOREIGN KEY (category_id) REFERENCES categories(id)
+
+
+
+// connect to database using PHP
+
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+?>
